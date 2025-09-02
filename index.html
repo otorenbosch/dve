@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">Drentse Vereniging van Ergotherapeuten | DVE</title>
+    <meta name="description" content="De Drentse Vereniging van Ergotherapeuten verbindt, versterkt en vertegenwoordigt ergotherapeuten in Drenthe. Samen sterker in de zorg." data-i18n-content="page_description">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/dve-logo.png" alt="DVE Logo">
+                <span class="nav-title">DVE</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link" data-i18n="nav_home">Home</a>
+                <a href="#over-ons" class="nav-link" data-i18n="nav_about">Over Ons</a>
+                <a href="#ergotherapie" class="nav-link" data-i18n="nav_ergotherapy">Wat is Ergotherapie</a>
+                <a href="#praktijken" class="nav-link" data-i18n="nav_practices">Praktijken</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="nl">
+                        <span class="lang-flag">🇳🇱</span>
+                        <span data-i18n="lang_dutch">Nederlands</span>
+                    </button>
+                    <button class="lang-btn" data-lang="drt">
+                        <span class="lang-flag">🏛️</span>
+                        <span data-i18n="lang_drents">Drents</span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="hero-title-main" data-i18n="hero_title_main">Drentse Vereniging van</span>
+                    <span class="hero-title-accent" data-i18n="hero_title_accent">Ergotherapeuten</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">Verbindt, versterkt en vertegenwoordigt ergotherapeuten in Drenthe</p>
+                <div class="hero-buttons">
+                    <a href="#over-ons" class="btn btn-primary" data-i18n="hero_btn_discover">Ontdek meer</a>
+                    <a href="#praktijken" class="btn btn-secondary" data-i18n="hero_btn_find">Vind een praktijk</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <i class="fas fa-hands-helping hero-icon"></i>
+                    <h3 data-i18n="hero_card_title">Samen sterker in de zorg</h3>
+                    <p data-i18n="hero_card_subtitle">Voor betere ergotherapeutische ondersteuning in Drenthe</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#over-ons" class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Over Ons Section -->
+    <section id="over-ons" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="about_title">Over Ons</h2>
+                <p class="section-subtitle" data-i18n="about_subtitle">Een monodisciplinaire vereniging van ergotherapeuten</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-text">
+                    <p class="lead" data-i18n="about_lead">De Drentse Vereniging van Ergotherapeuten (DVE) is een monodisciplinaire vereniging van ergotherapeuten die werkzaam zijn in de provincie Drenthe.</p>
+                    
+                    <p data-i18n="about_description">Wij zetten ons in om ergotherapeuten regionaal met elkaar te verbinden, kennis te delen en de positie van ons vakgebied te versterken. Door samen te werken en zichtbaar te zijn, willen we bijdragen aan toegankelijke, doelgerichte en kwalitatief hoogwaardige ergotherapie in Drenthe.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 data-i18n="feature_exchange_title">Professionele uitwisseling</h3>
+                            <p data-i18n="feature_exchange_desc">Platform voor kennisdeling en samenwerking</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3 data-i18n="feature_cooperation_title">Regionale samenwerking</h3>
+                            <p data-i18n="feature_cooperation_desc">Verbindingen binnen de zorgketen</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 data-i18n="feature_advocacy_title">Belangenbehartiging</h3>
+                            <p data-i18n="feature_advocacy_desc">Voor zorgpartners en beleidsmakers</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-sidebar">
+                    <div class="mission-vision">
+                        <div class="mv-card">
+                            <h3><i class="fas fa-bullseye"></i> <span data-i18n="mission_title">Missie</span></h3>
+                            <p data-i18n="mission_text">De DVE zet zich in voor het versterken, verbinden en vertegenwoordigen van ergotherapeuten in Drenthe. Wij bevorderen de kwaliteit en zichtbaarheid van ergotherapie door kennisdeling, samenwerking en belangenbehartiging.</p>
+                        </div>
+                        <div class="mv-card">
+                            <h3><i class="fas fa-eye"></i> <span data-i18n="vision_title">Visie</span></h3>
+                            <p data-i18n="vision_text">We streven naar een toekomst waarin ergotherapie in Drenthe een vanzelfsprekende en toegankelijke zorgvorm is, die integraal deel uitmaakt van het regionale zorgnetwerk.</p>
+                        </div>
+                        <div class="mv-card bestuur">
+                            <h3><i class="fas fa-crown"></i> <span data-i18n="board_title">Bestuur</span></h3>
+                            <div class="bestuur-list">
+                                <div class="bestuur-member">
+                                    <strong>Nienke Roorda</strong>
+                                    <span data-i18n="board_chair">Voorzitter</span>
+                                </div>
+                                <div class="bestuur-member">
+                                    <strong>Monique van Poppel</strong>
+                                    <span data-i18n="board_secretary">Secretaris</span>
+                                </div>
+                                <div class="bestuur-member">
+                                    <strong>Monique Gebben</strong>
+                                    <span data-i18n="board_treasurer">Penningmeester</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wat is Ergotherapie Section -->
+    <section id="ergotherapie" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="ergo_title">Wat is Ergotherapie</h2>
+                <p class="section-subtitle" data-i18n="ergo_subtitle">Bevorderen van zelfstandigheid en participatie</p>
+            </div>
+            
+            <div class="ergo-content">
+                <div class="ergo-main">
+                    <p class="lead">Ergotherapie is een paramedisch beroep dat zich richt op het bevorderen van zelfstandigheid en participatie in het dagelijks leven.</p>
+                    
+                    <p>Dit kan thuis, op het werk, op school of in de vrije tijd zijn. Ergotherapie richt zich op het behouden, verbeteren of compenseren van dagelijkse handelingen die door ziekte, een ongeval, ouderdom of een beperking moeilijk zijn geworden.</p>
+                    
+                    <p>De ergotherapeut kijkt hierbij niet alleen naar de beperking, maar juist naar de mogelijkheden binnen het handelen. De behandeling is altijd maatwerk. Samen met de cliënt wordt gezocht naar doelgerichte en praktische oplossingen, zodat men zelf de regie over het leven behoudt.</p>
+                    
+                    <div class="highlight-box">
+                        <i class="fas fa-heart"></i>
+                        <p>Ergotherapie is inzetbaar in alle levensfasen: van jonge kinderen tot ouderen.</p>
+                    </div>
+                </div>
+                
+                <div class="ergo-visual">
+                    <div class="ergo-circles">
+                        <div class="ergo-circle">
+                            <i class="fas fa-home"></i>
+                            <span data-i18n="ergo_home">Thuis</span>
+                        </div>
+                        <div class="ergo-circle">
+                            <i class="fas fa-briefcase"></i>
+                            <span data-i18n="ergo_work">Werk</span>
+                        </div>
+                        <div class="ergo-circle">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span data-i18n="ergo_school">School</span>
+                        </div>
+                        <div class="ergo-circle">
+                            <i class="fas fa-gamepad"></i>
+                            <span data-i18n="ergo_leisure">Vrije tijd</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Praktijken Section -->
+    <section id="praktijken" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Aangesloten Praktijken</h2>
+                <p class="section-subtitle">Professionele ergotherapie door heel Drenthe</p>
+            </div>
+            
+            <div class="praktijken-content">
+                <div class="map-container">
+                    <div id="drenthe-kaart" class="drenthe-kaart"></div>
+                </div>
+                
+                <div class="praktijken-grid">
+                    <div class="praktijk-card" data-lat="52.7952563" data-lng="6.7282738">
+                        <div class="praktijk-header">
+                            <img src="assets/images/ergotherapie-in-drenthe-logo.png" alt="Ergotherapie in Drenthe" class="praktijk-logo">
+                            <div class="praktijk-info">
+                                <h3>Ergotherapie in Drenthe</h3>
+                                <p class="praktijk-location">Zweeloo en omstreken</p>
+                                <span class="praktijk-specialisatie">Volwassenen en kinderen</span>
+                            </div>
+                        </div>
+                        <div class="praktijk-actions">
+                            <a href="https://www.ergotherapiedrenthe.nl/" target="_blank" class="btn btn-small">
+                                <i class="fas fa-external-link-alt"></i> Website
+                            </a>
+                            <button class="btn btn-small btn-secondary show-on-map" data-lat="52.7952563" data-lng="6.7282738">
+                                <i class="fas fa-map-marker-alt"></i> Toon op kaart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="praktijk-card" data-lat="52.7158451" data-lng="6.4986021">
+                        <div class="praktijk-header">
+                            <img src="assets/images/roorda-logo.png" alt="Ergotherapie Roorda" class="praktijk-logo">
+                            <div class="praktijk-info">
+                                <h3>Ergotherapie Roorda</h3>
+                                <p class="praktijk-location">Hoogeveen</p>
+                                <span class="praktijk-specialisatie">Kinderen</span>
+                            </div>
+                        </div>
+                        <div class="praktijk-actions">
+                            <a href="https://ergotherapieroorda.nl/" target="_blank" class="btn btn-small">
+                                <i class="fas fa-external-link-alt"></i> Website
+                            </a>
+                            <button class="btn btn-small btn-secondary show-on-map" data-lat="52.7158451" data-lng="6.4986021">
+                                <i class="fas fa-map-marker-alt"></i> Toon op kaart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="praktijk-card" data-lat="52.6941668" data-lng="6.189204">
+                        <div class="praktijk-header">
+                            <img src="assets/images/fytac-logo.png" alt="Fytac" class="praktijk-logo">
+                            <div class="praktijk-info">
+                                <h3>Fytac</h3>
+                                <p class="praktijk-location">Meppel</p>
+                                <span class="praktijk-specialisatie">Volwassenen</span>
+                            </div>
+                        </div>
+                        <div class="praktijk-actions">
+                            <a href="https://fytac.nl" target="_blank" class="btn btn-small">
+                                <i class="fas fa-external-link-alt"></i> Website
+                            </a>
+                            <button class="btn btn-small btn-secondary show-on-map" data-lat="52.6941668" data-lng="6.189204">
+                                <i class="fas fa-map-marker-alt"></i> Toon op kaart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">Neem contact met ons op</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>Voor vragen en informatie</p>
+                        <a href="mailto:info@ergotherapeuten-drenthe.nl">info@ergotherapeuten-drenthe.nl</a>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Locatie</h3>
+                        <p>Actief in heel Drenthe</p>
+                        <span>Provincie Drenthe, Nederland</span>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Word lid</h3>
+                        <p>Sluit je aan bij onze vereniging</p>
+                        <span>Voor ergotherapeuten in Drenthe</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Onderwerp</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Bericht</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Verstuur bericht
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/dve-logo.png" alt="DVE Logo">
+                    <span>Drentse Vereniging van Ergotherapeuten</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#over-ons">Over Ons</a>
+                    <a href="#ergotherapie">Ergotherapie</a>
+                    <a href="#praktijken">Praktijken</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Drentse Vereniging van Ergotherapeuten. Samen sterker in de zorg.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
