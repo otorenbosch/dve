@@ -144,7 +144,6 @@ h4 { font-size: 1.25rem; }
 .nav-menu {
     display: flex;
     gap: 2rem;
-    align-items: center;
 }
 
 .nav-link {
@@ -188,48 +187,6 @@ h4 { font-size: 1.25rem; }
     background: var(--primary-color);
     transition: var(--transition);
     border-radius: 2px;
-}
-
-/* Language Switcher */
-.language-switcher {
-    display: flex;
-    background: var(--bg-alt);
-    border-radius: 8px;
-    padding: 4px;
-    margin-left: 1rem;
-    border: 1px solid var(--border-color);
-}
-
-.lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    background: none;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-light);
-    transition: var(--transition);
-    white-space: nowrap;
-}
-
-.lang-btn:hover {
-    background: rgba(46, 90, 135, 0.1);
-    color: var(--primary-color);
-}
-
-.lang-btn.active {
-    background: var(--primary-color);
-    color: white;
-    box-shadow: 0 2px 4px rgba(46, 90, 135, 0.2);
-}
-
-.lang-flag {
-    font-size: 1rem;
-    line-height: 1;
 }
 
 /* Hero Section */
@@ -885,13 +842,6 @@ h4 { font-size: 1.25rem; }
     
     .nav-toggle {
         display: flex;
-    }
-    
-    .language-switcher {
-        margin-left: 0;
-        margin-top: 1rem;
-        justify-content: center;
-        width: 100%;
     }
     
     .nav-toggle.active .bar:nth-child(2) {

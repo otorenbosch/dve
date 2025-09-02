@@ -5,77 +5,8 @@ const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const contactForm = document.getElementById('contact-form');
 
-// Language system
-let currentLanguage = localStorage.getItem('dve-language') || 'nl';
-
-// Language functions
-function updateLanguage(lang) {
-    currentLanguage = lang;
-    localStorage.setItem('dve-language', lang);
-    
-    // Update all elements with data-i18n attributes
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
-    });
-    
-    // Update meta title and description
-    const title = document.querySelector('title[data-i18n]');
-    if (title && translations[lang]) {
-        const titleKey = title.getAttribute('data-i18n');
-        if (translations[lang][titleKey]) {
-            document.title = translations[lang][titleKey];
-        }
-    }
-    
-    const metaDesc = document.querySelector('meta[data-i18n-content]');
-    if (metaDesc && translations[lang]) {
-        const descKey = metaDesc.getAttribute('data-i18n-content');
-        if (translations[lang][descKey]) {
-            metaDesc.setAttribute('content', translations[lang][descKey]);
-        }
-    }
-    
-    // Update html lang attribute
-    document.documentElement.setAttribute('lang', translations[lang].lang_code || lang);
-    
-    // Update active language button
-    const langButtons = document.querySelectorAll('.lang-btn');
-    langButtons.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('data-lang') === lang) {
-            btn.classList.add('active');
-        }
-    });
-    
-    console.log(`Language switched to: ${lang}`);
-}
-
-function initializeLanguage() {
-    // Set initial language
-    updateLanguage(currentLanguage);
-    
-    // Add event listeners to language buttons
-    const langButtons = document.querySelectorAll('.lang-btn');
-    langButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const lang = button.getAttribute('data-lang');
-            if (lang && lang !== currentLanguage) {
-                updateLanguage(lang);
-            }
-        });
-    });
-}
-
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize language system first
-    initializeLanguage();
-    
     // Mobile menu toggle
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
@@ -310,14 +241,12 @@ function handleContactForm(e) {
     
     // Simple validation
     if (!data.name || !data.email || !data.subject || !data.message) {
-        const message = translations[currentLanguage]?.form_fill_all || 'Vul alle velden in.';
-        showNotification(message, 'error');
+        showNotification('Vul alle velden in.', 'error');
         return;
     }
     
     if (!isValidEmail(data.email)) {
-        const message = translations[currentLanguage]?.form_valid_email || 'Voer een geldig e-mailadres in.';
-        showNotification(message, 'error');
+        showNotification('Voer een geldig e-mailadres in.', 'error');
         return;
     }
     
@@ -325,13 +254,11 @@ function handleContactForm(e) {
     const submitButton = e.target.querySelector('button[type="submit"]');
     const originalText = submitButton.innerHTML;
     
-    const sendingText = translations[currentLanguage]?.form_sending || 'Versturen...';
-    submitButton.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${sendingText}`;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Versturen...';
     submitButton.disabled = true;
     
     setTimeout(() => {
-        const successMessage = translations[currentLanguage]?.form_success || 'Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.';
-        showNotification(successMessage, 'success');
+        showNotification('Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.', 'success');
         e.target.reset();
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
